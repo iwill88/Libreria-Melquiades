@@ -1,0 +1,24 @@
+
+/*-------------NAV---------------*/
+
+.logo_nav img{
+    height:110px;
+    width:auto;
+}
+
+.nav-list{
+    padding-left:270px;
+    
+}
+
+
+
+
+/*----------------RESPONSIVE-----------------*/
+
+/*-------------NAV---------------*/
+@media all and (max-width:1050px){
+    .nav-list{
+        padding-left:0px;
+    }
+}
