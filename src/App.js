@@ -4,7 +4,7 @@ export const App = () => {
     return (
         <>
           <Navbar/>
-          <ItemListContainer saludo="Bievenido a la Librería Melquiades"/>
+          <ItemListContainer saludo="Bievenido a la Librería Melquíades"/>
         </>
     );
 }
