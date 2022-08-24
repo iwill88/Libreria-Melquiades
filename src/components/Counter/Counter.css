@@ -1,0 +1,16 @@
+.card-new{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+.counter-box{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+}
+
+.counter-box img{
+    width:154px;
+    height:252px;
+}
