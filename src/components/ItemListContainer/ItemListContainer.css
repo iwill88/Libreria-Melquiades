@@ -1,5 +1,23 @@
 .saludo{
     display:flex;
     justify-content:center;
+    text-align: center;
+}
+
+.itemContainer{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*----------------RESPONSIVE-----------------*/
+
+/*-------------ItemListContainer---------------*/
+@media all and (max-width:1050px){
+    .saludo{
+        padding:0px 20px;
+    }
+
     
+
 }

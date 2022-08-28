@@ -1,0 +1,32 @@
+
+.form{
+    width:100%;
+}
+
+
+.buttonSearch{
+    margin-right:20px;
+
+}
+
+/*----------------RESPONSIVE-----------------*/
+
+/*-------------NAV---------------*/
+@media all and (max-width:580px){
+    .form{
+        margin-top:10px;
+    }
+
+    .formSearch{
+        height:35px;
+    }
+
+    .buttonSearch{
+        position:relative;
+        bottom:9px;
+    }
+
+
+
+
+}

@@ -6,19 +6,10 @@
     width:auto;
 }
 
-.nav-list{
-    padding-left:300px;
-    
-}
 
 
-
-
-/*----------------RESPONSIVE-----------------*/
-
-/*-------------NAV---------------*/
 @media all and (max-width:1050px){
-    .nav-list{
-        padding-left:0px;
+    .cart{
+        margin:10px 0px;
     }
 }
