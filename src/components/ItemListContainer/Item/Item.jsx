@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../ItemListContainer/Item/Item.css';
 import { CounterCustomHook } from '../../Counter/CounterCustomHook';
 export const Item = ({libro}) => {
