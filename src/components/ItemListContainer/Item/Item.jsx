@@ -1,20 +1,21 @@
 import '../../ItemListContainer/Item/Item.css';
-import { CounterCustomHook } from '../../Counter/CounterCustomHook';
+import { Link } from 'react-router-dom';
 export const Item = ({libro}) => {
-    function onAdd(count){
-        console.log(`Se han agregado ${count} productos`)
-      }
+    const {img, nombre, autor, precio, id} =libro;
     return (
 
         <div className="item">
             <div className="item-box">
-                <img src={libro.img} alt={libro.nombre} />
-                <h4>{libro.nombre}</h4>
-                <h5>{libro.autor}</h5>
-                <p className="item-text">Precio: S/. {libro.precio}</p>
+                <img src={img} alt={nombre} />
+                <h4>{nombre}</h4>
+                <h5>{autor}</h5>
+                <p className="item-text">Precio: S/. {precio}</p>
+                <Link to={`/detalles/${id}`}>
+                    <button className="btn btn-danger">Ver más detalles</button>
+                </Link>
                 
 
-                <CounterCustomHook stock={libro.stock} onAdd={onAdd}/>
+                
             </div>
         </div>
     )

@@ -1,16 +1,22 @@
 import {ItemDetail} from './ItemDetail/ItemDetail';
 import {libros} from '../../data/libros';
 import {React, useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import '../ItemDetailContainer/ItemDetailContainer.css'
+import { Orbit } from '@uiball/loaders'
+
 export const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
+    
+  const {id} = useParams()
+
+  const [producto, setProducto] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
     console.log(producto);
     useEffect(() => {
   
       const getItem = new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(libros);
+          resolve(libros.find(libro => libro.id === Number(id)));
           reject('ERROR');
         }, 2000);
       });
@@ -21,6 +27,6 @@ export const ItemDetailContainer = () => {
         .finally(() => setIsLoading(false));
     }, []);
   
-    return isLoading ? <h2>Cargando...</h2> : <div className="itemDetailContainer"><ItemDetail  seleccion={producto[0]} /></div>;
+    return isLoading ? <div className="spinnerContainer"><Orbit size={35} color="#231F20" /></div> : <div className="itemDetailContainer"><ItemDetail  seleccion={producto} /></div>;
   };
   

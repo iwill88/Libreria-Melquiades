@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive&display=swap');
+
+.saludo{
+    display:flex;
+    justify-content:center;
+    text-align: center;
+    font-family: 'Cutive', serif;
+    padding-top:20px;
+}
+
+.saludo h1 {
+    font-size: 50px;
+}

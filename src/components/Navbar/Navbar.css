@@ -6,10 +6,24 @@
     width:auto;
 }
 
+.categoria{
+    align-self: flex-start;
+    margin-left:20px;
+}
+
+.links a {
+    text-decoration: none;
+}
+
 
 
 @media all and (max-width:1050px){
     .cart{
         margin:10px 0px;
+    }
+
+    .categoria{
+        margin: 5px 10px;
+        
     }
 }
