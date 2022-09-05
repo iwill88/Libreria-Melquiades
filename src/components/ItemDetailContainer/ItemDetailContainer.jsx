@@ -16,12 +16,13 @@ export const ItemDetailContainer = () => {
   
       const getItem = new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(libros.find(libro => libro.id === Number(id)));
+          resolve(libros);
           reject('ERROR');
         }, 2000);
       });
   
       getItem
+        .then((response) => response.find(libro => libro.id === Number(id)) )
         .then((response) => setProducto(response))
         .catch((err) => console.log(err)) 
         .finally(() => setIsLoading(false));
