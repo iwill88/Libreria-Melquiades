@@ -4,21 +4,29 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css'
+import { DarkModeContext } from './context/DarkModeContext';
+import { useContext } from 'react';
+import { Cart } from './components/Cart/Cart';
 
 export const App = () => {
-
+    const {darkMode, toggleDarkMode} = useContext(DarkModeContext)
+   
     return (
+        <div className={darkMode ? 'darkMode' : 'lightMode'}>
         <BrowserRouter>
         <Navbar/>
-        <div className="saludo">
-              <h1>"Librería Melquíades"</h1>
-          </div>
+        <div className="botonMode">
+        <button className={darkMode ? 'btn btn-light': 'btn btn-dark'} onClick={()=>toggleDarkMode()}>Mode</button>
+        </div>
         <Routes>
             <Route path='/' element={<ItemListContainer/>}></Route>
-            <Route path='/detalles/:id' element={<ItemDetailContainer/>}></Route>
+            <Route path='/detalles/:id' element={<ItemDetailContainer darkMode={darkMode}/>}></Route>
             <Route path='/categorias/:categorias' element={<ItemListContainer/>}></Route>
+            <Route path='/cart' element={<Cart/>}></Route>
         </Routes>
         </BrowserRouter>
+        </div>
+        
     );
 }
 

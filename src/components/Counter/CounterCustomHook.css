@@ -1,3 +1,10 @@
 .counter-confirmar{
     width:137px;
 }
+
+.botonFinalizar{
+    position:relative;
+    top:120px;
+    width:150px;
+
+}
