@@ -2,19 +2,22 @@ import { useState } from 'react';
 import {CounterCustomHook} from '../../Counter/CounterCustomHook';
 import '../ItemDetail/ItemDetail.css';
 import {Link} from 'react-router-dom';
+import { useContext } from 'react';
+import { CarritoContext } from '../../../context/CarritoContext';
 export const ItemDetail = ({seleccion,darkMode}) => {
 
     const {img, nombre, autor, precio, stock, id} =seleccion;
 
     const [goToCart,setGoToCart] = useState(false);
     
-    function onAdd(count){
-            const productoCarrito = {id: id, count: count}
-            console.log(productoCarrito);
-            setGoToCart(true);
-            
+    const { agregarProductoCarrito} = useContext(CarritoContext)
 
+
+    function onAdd(count){
+            agregarProductoCarrito({id:id,cantidad:count})
+            setGoToCart(true);
         }
+
     return (
     <div className="item-seleccion">
         <div className="item-seleccion-img">
@@ -30,7 +33,6 @@ export const ItemDetail = ({seleccion,darkMode}) => {
                     <button className= "btn btn-danger mt-1 botonFinalizar">Finalizar compra</button>
                 </Link>) : 
                 (<CounterCustomHook stock={stock} onAdd={onAdd}/>)}
-                
             </div>
             
         </div>

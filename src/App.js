@@ -7,11 +7,13 @@ import './App.css'
 import { DarkModeContext } from './context/DarkModeContext';
 import { useContext } from 'react';
 import { Cart } from './components/Cart/Cart';
+import { CarritoContextProvider } from './context/CarritoContext';
 
 export const App = () => {
     const {darkMode, toggleDarkMode} = useContext(DarkModeContext)
    
     return (
+        <CarritoContextProvider>
         <div className={darkMode ? 'darkMode' : 'lightMode'}>
         <BrowserRouter>
         <Navbar/>
@@ -26,7 +28,7 @@ export const App = () => {
         </Routes>
         </BrowserRouter>
         </div>
-        
+        </CarritoContextProvider>
     );
 }
 

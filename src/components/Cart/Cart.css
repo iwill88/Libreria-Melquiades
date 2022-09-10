@@ -1,0 +1,37 @@
+.cartContainer{
+  padding-left: 150px;
+}
+
+.cartContainer{
+}
+
+.detalleCart h1{
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.detalleCart a{
+    align-self: center;
+    text-decoration: none;
+}
+
+.resumenCart{
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 50px;
+    padding-right: 120px;
+    
+}
+
+.titulosDetalle{
+    text-transform: uppercase;
+    align-self: center;
+   
+   
+}
+
+.titulosDetalle div{
+    font-weight: bold;
+}
+
+

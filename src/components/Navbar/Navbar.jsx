@@ -2,7 +2,10 @@ import './Navbar.css';
 import {CartWidget} from '../CartWidget/CartWidget';
 import { Search } from './Search/Search';
 import { Link } from 'react-router-dom';
+
 export const Navbar = () => {
+
+
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column">
