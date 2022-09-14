@@ -26,6 +26,7 @@
 .titulosDetalle{
     text-transform: uppercase;
     align-self: center;
+    text-align: center;
    
    
 }
@@ -34,4 +35,8 @@
     font-weight: bold;
 }
 
+.cartProductos div img{
+    width:100px;
+    height:157px;
 
+}

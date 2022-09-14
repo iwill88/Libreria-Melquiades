@@ -7,7 +7,7 @@ export const Navbar = () => {
 
 
   return (
-    <>
+   
     <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column">
     <div className="container-fluid d-flex">
       <Link to="/">
@@ -39,7 +39,7 @@ export const Navbar = () => {
         </div>
       </div>
   </nav>
-  </>
+
   );
 }
 

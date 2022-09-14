@@ -10,18 +10,22 @@ export const ItemDetail = ({seleccion,darkMode}) => {
 
     const [goToCart,setGoToCart] = useState(false);
     
-    const { agregarProductoCarrito} = useContext(CarritoContext)
+    const {carrito, agregarProductoCarrito} = useContext(CarritoContext)
 
 
-    function onAdd(count){
-            agregarProductoCarrito({id:id,cantidad:count})
+    function onAdd( count){
+            const productoCarrito = {id: id, nombre: nombre, precio:precio, img: img, cantidad: count}
+            agregarProductoCarrito(productoCarrito)
+            console.log(carrito)
             setGoToCart(true);
         }
+
 
     return (
     <div className="item-seleccion">
         <div className="item-seleccion-img">
             <img src={img} alt={nombre} />
+            <p>{carrito.id}</p>
         </div>
         <div className={!darkMode ? "item-seleccion-info":"item-seleccion-darkMode"}>
             <h4>{nombre}</h4>

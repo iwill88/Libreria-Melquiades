@@ -14,6 +14,7 @@ export const CounterCustomHook = ({stock, onAdd}) => {
         </div>
         <div>
             <button className= "btn btn-danger mt-1 counter-confirmar" onClick={()=>onAdd(count)}>Comprar</button>
+
         </div>
     </>
     );

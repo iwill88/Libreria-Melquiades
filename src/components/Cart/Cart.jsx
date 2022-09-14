@@ -1,9 +1,14 @@
 import {IoIosArrowRoundBack}  from "react-icons/io";
 import './Cart.css'
-
+import { BsTrash } from "react-icons/bs";
+import { ResumenCart } from "./ResumenCart";
+import { useContext } from 'react';
+import { CarritoContext } from "../../context/CarritoContext";
 export const Cart = () => {
-
+  const {carrito, quitarProductoCarrito} = useContext(CarritoContext)
+  
     return (
+      
         <div className="d-flex justify-content-between">
         <div className="cartContainer d-grid col-7">
             <div className="row detalleCart">
@@ -15,10 +20,10 @@ export const Cart = () => {
                 </a>
             </div>
             <div className="row bg-light py-3 titulosDetalle">
-              <div className="col-md-6">
+              <div className="col-md-6 text-start">
                 Producto
               </div>
-              <div className="col-md-2">
+              <div className="col-md-2 ">
                 Precio
               </div>
               <div className="col-md-2">
@@ -28,15 +33,26 @@ export const Cart = () => {
                 Subtotal
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6">
+            <div>
+              {carrito.map(prod => (
+                <div className="row cartProductos pb-2">
+                <div className="col-md-6  d-flex align-items-center pt-2" key={prod.id}>
+                <img src={prod.img} className="me-2"alt={prod.nombre} />
+                  {prod.nombre}
+                </div>
+                <div className="col-md-2 align-self-center text-center">
+                  S/.{prod.precio}
+                </div>
+                <div className="col-md-2 align-self-center text-center">
+                  {prod.cantidad}
+                </div>
+                <div className="col-md-2 d-flex align-self-center text-center justify-content-end">
+                  S/.{(prod.precio) * prod.cantidad}
+                  <a className="ps-2" onClick={()=>quitarProductoCarrito(prod.id)}><BsTrash/></a>
+                </div>
               </div>
-              <div className="col-md-2">
-              </div>
-              <div className="col-md-2">
-              </div>
-              <div className="col-md-2">
-              </div>
+              ))}
+              
             </div>
             <div className="row bg-light">
               <div className="col-md-8">
@@ -47,37 +63,7 @@ export const Cart = () => {
             </div>
             
         </div>
-        <aside className="resumenCart col-5">
-          <div className="py-3">
-              Resumen del pedido
-          </div>
-          <div className="d-flex justify-content-between fs-6 border border-start-0 border-end-0 border-bottom-0 pt-2">
-            <div>
-              Subtotal
-            </div>
-            <div>
-              S/.188
-            </div> 
-          </div>
-          <div className="d-flex justify-content-between fs-6 border border-start-0 border-end-0 border-top-0 pb-2">
-            <div>
-              IGV
-            </div>
-            <div>
-              S/.0
-            </div> 
-          </div>
-          <div className="d-flex justify-content-between fs-5 py-3">
-            <div>
-              Total
-            </div>
-            <div>
-              S/.0
-            </div> 
-          </div>
-          <button className="btn btn-danger">Finalizar compra</button>
-        
-        </aside>
+       <ResumenCart/>
         </div>
     );
 }
