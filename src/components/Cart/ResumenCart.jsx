@@ -33,7 +33,7 @@ export const ResumenCart = () => {
             S/.{total()}
             </div> 
           </div>
-          <button className="btn btn-danger">Finalizar compra</button>
+          <button className="btn btn-warning">Finalizar compra</button>
         
         </aside>
     );

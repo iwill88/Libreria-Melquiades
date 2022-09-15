@@ -34,6 +34,7 @@ export const CarritoContextProvider = (props) => {
 
     const vaciarCarrito = () => {
         setCarrito([])
+        
     }
 
     const totalProductos = (auxCarrito) => {

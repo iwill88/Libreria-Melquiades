@@ -19,7 +19,9 @@ export const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarColor02">
         <Search/>
+        <Link to="/cart">
         <CartWidget/>
+        </Link>
       </div>
     </div>
     <div className="btn btn-dark dropdown categoria">

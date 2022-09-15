@@ -14,7 +14,7 @@ export const ItemDetail = ({seleccion,darkMode}) => {
 
 
     function onAdd( count){
-            const productoCarrito = {id: id, nombre: nombre, precio:precio, img: img, cantidad: count}
+            const productoCarrito = {id: id, nombre: nombre, precio:precio, img: img, autor: autor, cantidad: count}
             agregarProductoCarrito(productoCarrito)
             console.log(carrito)
             setGoToCart(true);
@@ -33,9 +33,14 @@ export const ItemDetail = ({seleccion,darkMode}) => {
             <div className="item-seleccion-compra">
                 <p>Precio: S/. {precio}</p>
                 {goToCart ? 
-                (<Link to ="/cart">
+                (<><div className="d-flex flex-column"><Link to ="/">
+                    <button className= "btn btn-dark mt-1 botonFinalizar">Seguir comprando</button>
+                    
+                </Link> 
+                <Link to ="/cart">
                     <button className= "btn btn-danger mt-1 botonFinalizar">Finalizar compra</button>
-                </Link>) : 
+                </Link>
+                </div></>): 
                 (<CounterCustomHook stock={stock} onAdd={onAdd}/>)}
             </div>
             

@@ -1,23 +1,38 @@
 import {IoIosArrowRoundBack}  from "react-icons/io";
 import './Cart.css'
-import { BsTrash } from "react-icons/bs";
-import { ResumenCart } from "./ResumenCart";
 import { useContext } from 'react';
 import { CarritoContext } from "../../context/CarritoContext";
+import { ResumenCart } from "./ResumenCart";
+import { DetailCart } from "./DetailCart";
+import { Link } from 'react-router-dom';
+import { CartEmpty } from "./CartEmpty";
+import React, {useEffect, useState} from 'react';
+import { Orbit } from '@uiball/loaders'
+
 export const Cart = () => {
-  const {carrito, quitarProductoCarrito} = useContext(CarritoContext)
-  
+  const {vaciarCarrito, carrito} = useContext(CarritoContext)
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+  }, 3000)
+  }, [])
+
     return (
-      
+        isLoading ? <div className="spinnerContainer"><Orbit size={35} color="#231F20" /></div> : carrito.length>0?
+
         <div className="d-flex justify-content-between">
         <div className="cartContainer d-grid col-7">
             <div className="row detalleCart">
                 <h1 className="col-8">
                     Carrito de Compras
                 </h1>
-                <a className="col-4" href="">
-                    <IoIosArrowRoundBack/>Comprar mas productos
-                </a>
+                <Link to="/">
+                  <a   href=""><IoIosArrowRoundBack/>Comprar mas productos</a>
+                </Link>
+        
+               
             </div>
             <div className="row bg-light py-3 titulosDetalle">
               <div className="col-md-6 text-start">
@@ -33,38 +48,20 @@ export const Cart = () => {
                 Subtotal
               </div>
             </div>
-            <div>
-              {carrito.map(prod => (
-                <div className="row cartProductos pb-2">
-                <div className="col-md-6  d-flex align-items-center pt-2" key={prod.id}>
-                <img src={prod.img} className="me-2"alt={prod.nombre} />
-                  {prod.nombre}
-                </div>
-                <div className="col-md-2 align-self-center text-center">
-                  S/.{prod.precio}
-                </div>
-                <div className="col-md-2 align-self-center text-center">
-                  {prod.cantidad}
-                </div>
-                <div className="col-md-2 d-flex align-self-center text-center justify-content-end">
-                  S/.{(prod.precio) * prod.cantidad}
-                  <a className="ps-2" onClick={()=>quitarProductoCarrito(prod.id)}><BsTrash/></a>
-                </div>
-              </div>
-              ))}
-              
-            </div>
+            <DetailCart/>
             <div className="row bg-light">
               <div className="col-md-8">
               </div>
-              <div className="col-md-4 d-flex align-items-center">
-                <button className="btn btn-warning my-2">Actualizar carrito</button>
+              <div className="col-md-4 d-flex align-items-center justify-content-end">
+                <button className="btn btn-danger my-2" onClick={()=>vaciarCarrito()}>Vaciar carrito</button>
               </div>
             </div>
             
         </div>
        <ResumenCart/>
-        </div>
+        </div>:
+        
+        <CartEmpty/>
     );
 }
 
