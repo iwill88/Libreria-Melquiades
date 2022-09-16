@@ -14,7 +14,7 @@ export const ItemDetail = ({seleccion,darkMode}) => {
 
 
     function onAdd( count){
-            const productoCarrito = {id: id, nombre: nombre, precio:precio, img: img, autor: autor, cantidad: count}
+            const productoCarrito = {id: id, nombre: nombre, precio:precio, img: img, autor: autor, stock: stock, cantidad: count}
             agregarProductoCarrito(productoCarrito)
             console.log(carrito)
             setGoToCart(true);

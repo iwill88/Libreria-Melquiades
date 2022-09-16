@@ -17,10 +17,12 @@ export const CarritoContextProvider = (props) => {
             auxCarrito[indice].cantidad =cantidadNueva
             setCarrito(auxCarrito)
             totalProductos(auxCarrito)
+            
         } else {
             auxCarrito.push(producto)
             setCarrito(auxCarrito)
             totalProductos(auxCarrito)
+            
         }
     }
 
@@ -30,6 +32,8 @@ export const CarritoContextProvider = (props) => {
         setCarrito(auxCarrito)
         totalProductos(auxCarrito)
         console.log(auxCarrito)
+        
+
     }
 
     const vaciarCarrito = () => {
@@ -49,15 +53,29 @@ export const CarritoContextProvider = (props) => {
         return resultado
     }
 
-    const mensaje = () => {
-        return <div>Hola</div>
+    const sumarCarrito = (producto) => {
+        let indice = auxCarrito.findIndex(prod => prod.id === producto.id)
+        if (auxCarrito[indice].cantidad<auxCarrito[indice].stock){
+            auxCarrito[indice].cantidad++
+        }
+        setCarrito(auxCarrito)
+        totalProductos(auxCarrito)
+    }
+
+    const restarCarrito = (producto) => {
+        let indice = auxCarrito.findIndex(prod => prod.id === producto.id)
+        if (auxCarrito[indice].cantidad > 1) {
+            auxCarrito[indice].cantidad--
+        }
+        setCarrito(auxCarrito)
+        totalProductos(auxCarrito)
     }
 
     
     return (
        
             <>
-            <CarritoContext.Provider value = {{mensaje, cantidad, carrito, agregarProductoCarrito, quitarProductoCarrito, vaciarCarrito, total}}>
+            <CarritoContext.Provider value = {{sumarCarrito, restarCarrito, cantidad, carrito, agregarProductoCarrito, quitarProductoCarrito, vaciarCarrito, total}}>
             {props.children}
             </CarritoContext.Provider>
             </>
