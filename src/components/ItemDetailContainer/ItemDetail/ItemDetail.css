@@ -90,6 +90,10 @@
     .item-seleccion-compra {
         width:100%;
     }
+
+    .item-seleccion-compra p {
+        text-align: center;
+    }
     .item-seleccion-info {
         padding-top:10px;
         padding-left:0px;
@@ -101,6 +105,18 @@
         padding-left: 0px;
         padding-right: 0px;
     }
+
+    .botonFinalizar{
+        top:0px;
+    
+    }
+
+    .containerFinalizar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
 
 }
 

@@ -1,0 +1,95 @@
+.footerContainer{
+    height:160px;
+    align-items: center;
+    justify-items: center;
+}
+
+.logo_nav img{
+    height:110px;
+    width:auto;
+}
+
+.secciones-footer {
+    display:flex;
+    flex-direction: column;
+}
+
+.certificados{
+    font-weight: bold;
+
+}
+
+.certificados img {
+    margin-top:5px;
+    height:42px;
+    width:80px
+}
+
+.pago {
+    font-weight: bold;
+    position: relative;
+    right:50px;
+}
+.pago img {
+    margin-top:5px;
+    height:50px;
+    width:250px;
+    
+}
+.libro img {
+    margin-top:5px;
+    height:38px;
+    width:80px
+}
+
+.libro{
+    font-weight: bold;
+
+}
+.copyright{
+    background-color: black;
+    color:white;
+    text-align: center;
+   
+}
+
+/*---------------------RESPONSIVE-----------------------*/
+
+@media all and (max-width:1050px){
+    .footerContainer{
+        height:auto;
+        
+    }
+
+    .logo_nav img{
+        height:100px;
+        width:auto;
+    }
+
+    .certificados{
+        align-items: center;
+        padding-bottom:10px;
+    }
+
+    .pago{
+        align-items: center;
+        right:0px;
+        padding-bottom:10px;
+
+    }
+
+    .libro{
+        align-items: center;
+        padding-bottom:15px;
+
+    }
+
+    .copyright{
+        padding:0px 30px;
+        font-size:15px;
+      
+    }
+
+   
+
+}

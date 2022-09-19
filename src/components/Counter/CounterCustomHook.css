@@ -2,3 +2,10 @@
     width:137px;
 }
 
+@media all and (max-width:1050px){
+    .counterContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

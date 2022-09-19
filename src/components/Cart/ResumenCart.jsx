@@ -5,7 +5,7 @@ export const ResumenCart = () => {
     const {total} = useContext(CarritoContext)
 
     return (
-             <aside className="resumenCart col-5">
+             <aside className="resumenCart col-md-5">
           <div className="py-3">
               Resumen del pedido
           </div>
@@ -33,7 +33,10 @@ export const ResumenCart = () => {
             S/.{total()}
             </div> 
           </div>
+          <div className="finalizarBoton">
           <button className="btn btn-warning">Finalizar compra</button>
+          </div>
+          
         
         </aside>
     );

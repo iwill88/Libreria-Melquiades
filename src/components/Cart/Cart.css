@@ -1,8 +1,13 @@
+
+
 .cartContainer{
   padding-left: 150px;
 }
 
-
+.detalleCart{
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
 
 .detalleCart h1{
     font-weight: bold;
@@ -28,7 +33,15 @@
     text-transform: uppercase;
     align-self: center;
     text-align: center;
+    color: white;
    
+}
+
+.titulosDetalleDark{
+    text-transform: uppercase;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
    
 }
 
@@ -67,4 +80,113 @@
 
 .continuarBoton {
     font-size: 14px;
+}
+.precioResponsive {
+    display: none;
+}
+.totalResponsive {
+    display: none;
+}
+
+
+.botonVaciar{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+    
+    
+}
+@media all and (max-width:600px) {
+
+    .cartContainer{
+        width:350px;
+    }
+    .cartEmpty img {
+        height:200px;
+        width:auto;
+    }
+
+    .cartEmpty h2 {
+        font-size: 25px;
+        padding:0px 20px;
+        position:relative;
+        top:20px;
+    }
+
+    .cartEmpty h3 {
+        font-size: 20px;
+        padding:0px 20px;
+       
+        text-align: center;
+
+    }
+}
+
+@media all and (max-width:1300px){
+    .cartContainerFull{
+        flex-direction:column;
+        align-items: center;
+        
+    }
+
+    .cartContainer{
+        padding-left: 0px;
+      }
+
+    .titulosDetalle{
+        display:none;
+    }
+
+    .titulosDetalleDark{
+        display:none;
+
+    }
+    
+    .cantidadResponsive{
+      display: flex;
+      justify-content: center;
+      padding-bottom:10px;
+      position:relative;
+      bottom:5px;
+    }
+    .imagenResponsive{
+        justify-content: center;
+        
+    }
+
+    .detalleCart{
+        text-align: center;
+    }
+
+    .botonVaciar{
+        background-color: white;
+        justify-content: center;
+    }
+
+    .precioResponsive{
+        display:flex;
+        padding-right:10px;
+        font-weight: bold;
+    }
+
+    .totalResponsive{
+        display:flex;
+        padding-right:10px;
+        font-weight: bold;
+    }
+
+    .resumenCart{
+
+        padding-left: 0px;
+        padding-right: 0px;
+        
+    }
+
+    .finalizarBoton{
+        display: flex;
+        justify-content: center;
+    }
+
+    
 }

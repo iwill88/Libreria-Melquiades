@@ -8,6 +8,7 @@ import { DarkModeContext } from './context/DarkModeContext';
 import { useContext } from 'react';
 import { Cart } from './components/Cart/Cart';
 import { CarritoContextProvider } from './context/CarritoContext';
+import { Footer } from './components/Footer/Footer';
 
 export const App = () => {
     const {darkMode, toggleDarkMode} = useContext(DarkModeContext)
@@ -24,8 +25,9 @@ export const App = () => {
             <Route path='/' element={<ItemListContainer/>}></Route>
             <Route path='/detalles/:id' element={<ItemDetailContainer darkMode={darkMode}/>}></Route>
             <Route path='/categorias/:categorias' element={<ItemListContainer/>}></Route>
-            <Route path='/cart' element={<Cart/>}></Route>
+            <Route path='/cart' element={<Cart darkMode={darkMode}/>}></Route>
         </Routes>
+        <Footer/>
         </BrowserRouter>
         </div>
         </CarritoContextProvider>

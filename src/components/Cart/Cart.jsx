@@ -9,7 +9,7 @@ import { CartEmpty } from "./CartEmpty";
 import React, {useEffect, useState} from 'react';
 import { Orbit } from '@uiball/loaders'
 
-export const Cart = () => {
+export const Cart = ({darkMode}) => {
   const {vaciarCarrito, carrito} = useContext(CarritoContext)
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,19 +22,19 @@ export const Cart = () => {
     return (
         isLoading ? <div className="spinnerContainer"><Orbit size={35} color="#231F20" /></div> : carrito.length>0?
 
-        <div className="d-flex justify-content-between">
-        <div className="cartContainer d-grid col-7">
+        <div className="d-flex justify-content-between cartContainerFull ">
+        <div className="cartContainer d-grid col-md-7">
             <div className="row detalleCart">
-                <h1 className="col-8">
+                <h1 >
                     Carrito de Compras
                 </h1>
                 <Link to="/">
-                  <a   href=""><IoIosArrowRoundBack/>Comprar mas productos</a>
+                  <IoIosArrowRoundBack/>Comprar mas productos
                 </Link>
         
                
             </div>
-            <div className="row bg-light py-3 titulosDetalle">
+            <div className={!darkMode ?"row bg-dark py-3 titulosDetalle":"row bg-dark py-3 titulosDetalleDark"} >
               <div className="col-md-6 text-start">
                 Producto
               </div>
@@ -49,11 +49,9 @@ export const Cart = () => {
               </div>
             </div>
             <DetailCart/>
-            <div className="row bg-light">
-              <div className="col-md-8">
-              </div>
-              <div className="col-md-4 d-flex align-items-center justify-content-end">
-                <button className="btn btn-danger my-2" onClick={()=>vaciarCarrito()}>Vaciar carrito</button>
+            <div className="row bg-dark ">
+              <div className="col-md-12 botonVaciar">
+                <button className="btn btn-danger my-2 " onClick={()=>vaciarCarrito()}>Vaciar carrito</button>
               </div>
             </div>
             

@@ -33,7 +33,7 @@ export const ItemDetail = ({seleccion,darkMode}) => {
             <div className="item-seleccion-compra">
                 <p>Precio: S/. {precio}</p>
                 {goToCart ? 
-                (<><div className="d-flex flex-column"><Link to ="/">
+                (<><div className="d-flex flex-column containerFinalizar"><Link to ="/">
                     <button className= "btn btn-dark mt-1 botonFinalizar">Seguir comprando</button>
                     
                 </Link> 

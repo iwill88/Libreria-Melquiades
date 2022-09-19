@@ -11,7 +11,7 @@ export const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column">
     <div className="container-fluid d-flex">
       <Link to="/">
-      <a className="navbar-brand logo_nav"><img src="../assets/Logo_melquiades.png" alt="Logo Melquiades" /></a>
+      <span className="navbar-brand logo_nav"><img src="../assets/Logo_melquiades.png" alt="Logo Melquiades" /></span>
       </Link>
       
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,16 +25,16 @@ export const Navbar = () => {
       </div>
     </div>
     <div className="btn btn-dark dropdown categoria">
-        <a className="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Categorías</a>
+        <span className="nav-link dropdown-toggle show" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Categorías</span>
         <div className="dropdown-menu links" data-bs-popper="static">
           <Link to="/categorias/ciencia-ficcion">
-            <a className="dropdown-item">Ciencia ficción</a>
+            <span className="dropdown-item">Ciencia ficción</span>
           </Link>
           <Link to="/categorias/fantasia">
-            <a className="dropdown-item">Fantasía</a>
+            <span className="dropdown-item">Fantasía</span>
           </Link>
           <Link to="/categorias/filosofia">
-            <a className="dropdown-item">Filosofía</a>
+            <span className="dropdown-item">Filosofía</span>
           </Link>
           
         <div />
