@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { doc, collection, addDoc, getFirestore } from "firebase/firestore";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -12,7 +12,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore()
+const db = getFirestore(app)
 
 async function cargarBaseDeDatos  () {
     const promise = await fetch('./json/libros.json')

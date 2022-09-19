@@ -1,5 +1,5 @@
 import {ItemDetail} from './ItemDetail/ItemDetail';
-import {libros} from '../../data/libros';
+/*import {libros} from '../../data/libros';*/
 import {React, useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import '../ItemDetailContainer/ItemDetailContainer.css'
@@ -14,13 +14,17 @@ const {id} = useParams()
   const [producto, setProducto] = useState()
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
+
+    setTimeout(()=>{
+      setIsLoading(false)},
+    2000)
+
         const db = getFirestore();
         const queryProd = doc(db, 'libros', id);
         getDoc(queryProd)
         .then((resp)=>{setProducto({id: resp.id, ...resp.data()})})
         .catch(err => err)
-        .finally(()=> setIsLoading(false))
-        console.log(producto)
+        .finally(()=> setIsLoading(true))
   }, [id]);
 
 /*

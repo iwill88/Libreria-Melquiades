@@ -1,11 +1,12 @@
 import './ItemListContainer.css';
 import {React, useState, useEffect} from 'react';
-import {libros} from '../../data/libros';
+/*import {libros} from '../../data/libros';*/
 import {ItemList} from '../ItemListContainer/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { Orbit } from '@uiball/loaders'
 import {Header} from '../Header/Header';
-import {getFirestore, collection, getDocs, query, where} from 'firebase/firestore';
+import {collection, getDocs, query, where} from 'firebase/firestore';
+import { db } from '../../firebase/firebase';
 
 export const ItemListContainer = () => {
   
@@ -17,8 +18,8 @@ export const ItemListContainer = () => {
 
 
   useEffect(()=>{
-    const querydb = getFirestore();
-    const queryCollection = collection(querydb, 'libros');
+    
+    const queryCollection = collection(db, 'libros');
     setTimeout(()=>{
       setIsLoading(false)},
     2000)
