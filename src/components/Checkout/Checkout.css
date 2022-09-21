@@ -1,0 +1,78 @@
+
+.checkContainer h2{
+   text-align: center;
+   font-weight: bold;
+   font-size: 35px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.formContainer input {
+    width:432px;
+    margin-bottom: 5px;
+}
+
+
+.botonesCheck{
+    width:432px;
+}
+
+.tituloDatos {
+   display: flex;
+   justify-content: center;
+   text-align: start;
+   width:82%;
+   
+}
+
+.tituloDatos h4 {
+    font-weight: bold;
+
+}
+
+.ordenCompra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:250px;
+    text-align: center;
+}
+
+.ordenCompra button{
+    width:25%;
+}
+
+@media all and (max-width:600px){
+
+    .tituloDatos{
+        padding-top: 15px;
+        padding-bottom:15px;
+    }
+
+    .tituloDatos h4 {
+        position: relative;
+        right:15px;
+    }
+    .formContainer input {
+       width:300px;
+    }
+    .botonesCheck{
+        width:300px;
+
+    }
+}
+
+@media all and (max-width:1300px){
+    .checkContainer h2{
+        position: relative;
+        top:30px;
+     }
+
+    
+}
