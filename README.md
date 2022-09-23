@@ -1,7 +1,7 @@
 # Librería Melquíades - El sueño del saber
 
 _Sitio Web de la librería ficticia "Librería Melquíades", creado con HTML, CSS, Bootstrap, Javascript, React, context, hooks y firebase. Sitio web para desktop y mobile y responsive. Se puede agregar productos al carrito de acuerdo al stock disponible y generar una orden de compra con un listado de productos._
-_Sitio Web de la librería ficticia "Librería Melquíades", creado con HTML, CSS, Bootstrap, Javascript, React, context, hooks y firebase. Sitio web para desktop y mobile y responsive. Puede agregar productos al carrito de acuerdo al stock disponible y generar una orden de compra con un listado de productos._
+
 
 ## ⚙️ Tecnologías utilizadas 🚀
 
