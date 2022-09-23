@@ -20,9 +20,7 @@ export const ItemListContainer = () => {
   useEffect(()=>{
     
     const queryCollection = collection(db, 'libros');
-    setTimeout(()=>{
-      setIsLoading(false)},
-    2000)
+    
     
       
   
@@ -33,14 +31,16 @@ export const ItemListContainer = () => {
       getDocs(queryFilter)
      
       .then(res=>setProductos(res.docs.map(product =>({ id: product.id, ...product.data()}))))
-      .finally(() => setIsLoading(true))
+      .catch(err => err)
+      .finally(()=> setIsLoading(false))
 
     }else {
       
       getDocs(queryCollection)
       
       .then(res=>setProductos(res.docs.map(product =>({ id: product.id, ...product.data()}))))
-      .finally(() => setIsLoading(true))
+      .catch(err => err)
+        .finally(()=> setIsLoading(false))
    
     }
     
@@ -72,9 +72,8 @@ export const ItemListContainer = () => {
       }
   }, [categorias]);
 */
-   return (
-    isLoading ? <div className="spinnerContainer"><Orbit size={35} color="#231F20" /></div>:<><Header/><div className="itemContainer"><ItemList list={productos} /></div></> 
-   )
+   return isLoading ? <div className="spinnerContainer"><Orbit size={35} color="#231F20" /></div>:<><Header/><div className="itemContainer"><ItemList list={productos} /></div></> 
+   
    
 }
 

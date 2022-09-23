@@ -15,16 +15,12 @@ const {id} = useParams()
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
 
-    setTimeout(()=>{
-      setIsLoading(false)},
-    2000)
-
         const db = getFirestore();
         const queryProd = doc(db, 'libros', id);
         getDoc(queryProd)
         .then((resp)=>{setProducto({id: resp.id, ...resp.data()})})
         .catch(err => err)
-        .finally(()=> setIsLoading(true))
+        .finally(()=> setIsLoading(false))
   }, [id]);
 
 /*
