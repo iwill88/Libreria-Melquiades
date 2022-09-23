@@ -1,4 +1,4 @@
-.item-seleccion{
+.itemSeleccion{
     display: flex;
     
     justify-content: center;
@@ -8,14 +8,14 @@
     
     
 }
-.item-seleccion-info{
+.itemSeleccionInfo{
     display:flex;
     flex-direction:column;
     align-items: flex-start;
     padding-left:30px;
  
 }
-.item-seleccion-darkMode{
+.itemSeleccionDarkMode{
     display:flex;
     flex-direction:column;
     align-items: flex-start;
@@ -23,22 +23,22 @@
  
 }
 
-.item-seleccion-img img{
+.itemSeleccionImg img{
     width:322px;
     height:527px;
 }
 
-.item-seleccion-info h4 {
+.itemSeleccionInfo h4 {
     font-size: 28px;
     color: #333333;
 }
 
-.item-seleccion-darkMode h4 {
+.itemSeleccionDarkMode h4 {
     font-size: 28px;
     color: white;
 }
 
-.item-seleccion-info h5 {
+.itemSeleccionInfo h5 {
     padding-top:20px;
     font-size: 19px;
     color: #828282;
@@ -46,20 +46,20 @@
    
 }
 
-.item-seleccion-darkMode h5 {
+.itemSeleccionDarkMode h5 {
     padding-top:20px;
     font-size: 19px;
     color: #cfb6b6;
     padding-bottom:10px;
 }
 
-.item-seleccion-compra{
+.itemSeleccionCompra{
     border-top: 1px solid #333333;
     width:500px;
     padding-top:10px;
 }
 
-.item-seleccion-compra p {
+.itemSeleccionCompra p {
     
     font-size: 19px;
 }
@@ -75,33 +75,33 @@
 
 /*-------------ItemDetail---------------*/
 @media all and (max-width:1050px){
-    .item-seleccion{
+    .itemSeleccion{
         flex-direction: column;
     }
 
-    .item-seleccion-img{
+    .itemSeleccionImg{
         display:flex;
         justify-content: center;
     }
 
-    .item-seleccion-img img{
+    .itemSeleccionImg img{
         width:178px;
         height:291px;
     }
-    .item-seleccion-compra {
+    .itemSeleccionCompra {
         width:100%;
     }
 
-    .item-seleccion-compra p {
+    .itemSeleccionCompra p {
         text-align: center;
     }
-    .item-seleccion-info {
+    .itemSeleccionInfo {
         padding-top:10px;
         padding-left:0px;
         align-items:center;
     }
 
-    .item-seleccion{
+    .itemSeleccion{
         align-items: center;
         padding-left: 0px;
         padding-right: 0px;

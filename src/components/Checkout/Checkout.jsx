@@ -1,7 +1,7 @@
 import './Checkout.css'
 import { useContext,useState } from 'react';
 import { CarritoContext } from '../../context/CarritoContext';
-import { addDoc,collection } from 'firebase/firestore';
+import { addDoc,collection,/*updateDoc,doc*/ } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import { Orbit } from '@uiball/loaders'
@@ -10,6 +10,12 @@ export const Checkout = () => {
     const {carrito, total, vaciarCarrito} = useContext(CarritoContext)
     const [orderId, setOrderId] = useState()
     const [isLoading, setIsLoading] = useState(true);
+
+
+    /*const stockUpdate = (id, stock, cantidad) => {
+            updateDoc(doc(db,"libros",id), 
+            {"stock": stock - cantidad})
+        }*/
 
     setTimeout(() => {
         setIsLoading(false)
@@ -48,6 +54,7 @@ export const Checkout = () => {
         const dia = new Date()
         const precioTotal = total()
         const data = {buyer,items,dia,precioTotal}
+        /*stockUpdate(e.id,e.stock, e.cantidad)*/
         generateOrder(data)
     }
 

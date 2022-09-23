@@ -22,15 +22,15 @@ export const ItemDetail = ({seleccion,darkMode}) => {
 
 
     return (
-    <div className="item-seleccion">
-        <div className="item-seleccion-img">
+    <div className="itemSeleccion">
+        <div className="itemSeleccionImg">
             <img src={img} alt={nombre} />
             <p>{carrito.id}</p>
         </div>
-        <div className={!darkMode ? "item-seleccion-info":"item-seleccion-darkMode"}>
+        <div className={!darkMode ? "itemSeleccionInfo":"itemSeleccionDarkMode"}>
             <h4>{nombre}</h4>
             <h5>{autor}</h5>
-            <div className="item-seleccion-compra">
+            <div className="itemSeleccionCompra">
                 <p>Precio: S/. {precio}</p>
                 {goToCart ? 
                 (<><div className="d-flex flex-column containerFinalizar"><Link to ="/">

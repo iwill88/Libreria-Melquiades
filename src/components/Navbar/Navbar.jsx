@@ -11,7 +11,7 @@ export const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column">
     <div className="container-fluid d-flex">
       <Link to="/">
-      <span className="navbar-brand logo_nav"><img src="../assets/Logo_melquiades.png" alt="Logo Melquiades" /></span>
+      <span className="navbar-brand logoNav"><img src="../assets/Logo_melquiades.png" alt="Logo Melquiades" /></span>
       </Link>
       
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">

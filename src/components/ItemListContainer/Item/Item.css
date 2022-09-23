@@ -6,23 +6,23 @@
     width:300px;
     
 }
-.item-box{
+.itemBox{
     display:flex;
     flex-direction:column;
     align-items: center;
     
 }
 
-.item-box img{
+.itemBox img{
     width:154px;
     height:252px;
 }
 
-.item-box h4 {
+.itemBox h4 {
     margin-top:15px;
     font-size: 20px;
 }
 
-.item-box h5 {
+.itemBox h5 {
     font-size: 15px;
 }

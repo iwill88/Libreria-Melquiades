@@ -8,7 +8,7 @@ export const Footer = () => {
             <div className="row footerContainer">
               <div className="col-md-3 ">
                 <Link to="/">
-                <div className="navbar-brand logo_nav"><img src="../assets/Logo_melquiades.png" alt="Logo Melquiades" /></div>
+                <div className="navbar-brand logoNav"><img src="../assets/Logo_melquiades.png" alt="Logo Melquiades" /></div>
                 </Link>
               </div>
               <div className="col-md-3  d-flex flex-column  certificados">
