@@ -1,7 +1,7 @@
 import './Checkout.css'
 import { useContext,useState } from 'react';
 import { CarritoContext } from '../../context/CarritoContext';
-import { addDoc,collection,/*updateDoc,doc*/ } from 'firebase/firestore';
+import { addDoc,collection,query, getDocs , where, documentId, writeBatch } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import { Orbit } from '@uiball/loaders'
@@ -12,10 +12,22 @@ export const Checkout = () => {
     const [isLoading, setIsLoading] = useState(true);
 
 
-    /*const stockUpdate = (id, stock, cantidad) => {
-            updateDoc(doc(db,"libros",id), 
-            {"stock": stock - cantidad})
-        }*/
+    const fRefreshStock = async () => {
+        const collectionStock = collection(db,'libros')
+        const queryStockRefresh = query(
+             collectionStock, where(documentId(), 'in', carrito.map(item=> item.id))
+             )
+    
+          const batch = writeBatch(db)
+          
+          await getDocs(queryStockRefresh)
+          .then(resp => resp.docs.forEach(res => batch.update(res.ref,{
+              stock: res.data().stock - carrito.find(item => item.id === res.id).cantidad
+          })
+          ))
+          .catch(err => console.log(err))
+          .finally(()=> batch.commit())
+    }  
 
     setTimeout(() => {
         setIsLoading(false)
@@ -54,7 +66,7 @@ export const Checkout = () => {
         const dia = new Date()
         const precioTotal = total()
         const data = {buyer,items,dia,precioTotal}
-        /*stockUpdate(e.id,e.stock, e.cantidad)*/
+        fRefreshStock ()
         generateOrder(data)
     }
 

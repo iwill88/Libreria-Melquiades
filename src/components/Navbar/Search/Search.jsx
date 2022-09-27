@@ -1,6 +1,8 @@
 import './Search.css'
 import { FaSearch } from "react-icons/fa";
 export const Search = () => {
+
+
     return (
         <>
             <form className="d-flex form">
