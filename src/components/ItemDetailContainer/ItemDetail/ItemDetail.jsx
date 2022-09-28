@@ -4,6 +4,8 @@ import '../ItemDetail/ItemDetail.css';
 import {Link} from 'react-router-dom';
 import { useContext } from 'react';
 import { CarritoContext } from '../../../context/CarritoContext';
+import { toast } from 'react-toastify';
+
 export const ItemDetail = ({seleccion,darkMode}) => {
 
     const {img, nombre, autor, precio, stock, id} =seleccion;
@@ -18,6 +20,7 @@ export const ItemDetail = ({seleccion,darkMode}) => {
             agregarProductoCarrito(productoCarrito)
             console.log(carrito)
             setGoToCart(true);
+            toast.success("Se ha agregado al carrito")
         }
 
 

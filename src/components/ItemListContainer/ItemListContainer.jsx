@@ -1,17 +1,16 @@
 import './ItemListContainer.css';
 import {React, useState, useEffect} from 'react';
-/*import {libros} from '../../data/libros';*/
 import {ItemList} from '../ItemListContainer/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { Orbit } from '@uiball/loaders'
 import {Header} from '../Header/Header';
 import {collection, getDocs, query, where} from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
-
+import { EmptySearch } from './EmptySearch/EmptySearch';
 export const ItemListContainer = () => {
   
   const {categorias} = useParams();
-  
+  const {nombre} = useParams();
   const [productos, setProductos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,7 +23,7 @@ export const ItemListContainer = () => {
     
       
   
-    if (categorias) {
+      if (categorias) {
       
       const queryFilter = query(queryCollection, where('categoria', "==", categorias))
       
@@ -34,7 +33,22 @@ export const ItemListContainer = () => {
       .catch(err => err)
       .finally(()=> setIsLoading(false))
 
-    }else {
+
+
+
+      }
+      
+      else if (nombre) {
+        getDocs(queryCollection)
+      
+        .then(res=>res.docs.map(product =>({ id: product.id, ...product.data()})))
+        .then(res=>res.filter((el)=>el.nombre.includes(nombre)))
+        .then(res=>setProductos(res))
+        .catch(err => err)
+        .finally(()=> setIsLoading(false))
+      }
+      
+      else {
       
       getDocs(queryCollection)
       
@@ -47,32 +61,12 @@ export const ItemListContainer = () => {
 
     
   
-  },[categorias])
+  },[nombre,categorias])
 
 
 
-/*
-      const getData = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(libros);
-          reject('ERROR');
-        }, 2000);
-    });
 
-    useEffect(() => {
-
-    getData
-      .then((response) => categorias ? response.filter(item => item.categoria ===categorias):response)
-      .then((response) => setProductos(response))
-      .catch((err) => console.log(err)) 
-     
-
-      return () => {
-        setProductos([])
-      }
-  }, [categorias]);
-*/
-   return isLoading ? <div className="spinnerContainer"><Orbit size={35} color="#231F20" /></div>:<><Header/><div className="itemContainer"><ItemList list={productos} /></div></> 
+   return isLoading ? <div className="spinnerContainer"><Orbit size={35} color="#231F20" /></div>: productos.length?<><Header/><div className="itemContainer"><ItemList list={productos} /></div></>:<><Header/><EmptySearch/></> 
    
    
 }

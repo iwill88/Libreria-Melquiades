@@ -5,8 +5,12 @@ import { addDoc,collection,query, getDocs , where, documentId, writeBatch } from
 import { db } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import { Orbit } from '@uiball/loaders'
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2'
 
 export const Checkout = () => {
+
+    
     const {carrito, total, vaciarCarrito} = useContext(CarritoContext)
     const [orderId, setOrderId] = useState()
     const [isLoading, setIsLoading] = useState(true);
@@ -62,12 +66,24 @@ export const Checkout = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const items = carrito.map(e=>{return {id:e.id, title:e.nombre,price:e.precio,cantidad:e.cantidad}})
-        const dia = new Date()
-        const precioTotal = total()
-        const data = {buyer,items,dia,precioTotal}
-        fRefreshStock ()
-        generateOrder(data)
+        if(Nombre.length===0||Email.length===0||Telefono.length===0){
+            toast.error("Complete todos los datos!")
+        } else {
+            const items = carrito.map(e=>{return {id:e.id, title:e.nombre,price:e.precio,cantidad:e.cantidad}})
+            const dia = new Date()
+            const precioTotal = total()
+            const data = {buyer,items,dia,precioTotal}
+            fRefreshStock ()
+            generateOrder(data)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Su orden de compra se ha generado',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+        
     }
 
     const handleCarrito = () => {
@@ -129,6 +145,7 @@ export const Checkout = () => {
                 
             :
             <div className='ordenCompra'>
+            
                 <h4 className='pb-5'> Su orden de compra es "{orderId}"</h4>
                 <button className="btn btn-danger" onClick={handleHome}>Volver al inicio</button>
             </div> }
