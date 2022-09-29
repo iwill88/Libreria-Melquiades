@@ -2,6 +2,9 @@ import { useContext } from 'react';
 import { CarritoContext } from "../../context/CarritoContext";
 import { BsTrash } from "react-icons/bs";
 export const DetailCart = () => {
+
+    //Llamamos desde CarritoContext las funciones para sumar y restar la cantidad por cada producto
+    
     const {carrito, quitarProductoCarrito, sumarCarrito, restarCarrito} = useContext(CarritoContext)
     
     function onAdd(productoCarrito){

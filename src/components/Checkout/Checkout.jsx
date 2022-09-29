@@ -15,7 +15,7 @@ export const Checkout = () => {
     const [orderId, setOrderId] = useState()
     const [isLoading, setIsLoading] = useState(true);
 
-
+    //La funcion fRegreshStock permite actualizar el stock de la Base de Datos del Firestore
     const fRefreshStock = async () => {
         const collectionStock = collection(db,'libros')
         const queryStockRefresh = query(
@@ -37,14 +37,20 @@ export const Checkout = () => {
         setIsLoading(false)
     }, 2000)
 
+    //La variable buyer contiene los datos que se recibiran en el input del formulario
+
+
     const [buyer, setBuyer] = useState({
         Nombre:"",
         Email:"",
-        Telefono:""
+        Telefono:"",
+        Direccion:""
     })
 
-    const {Nombre, Email, Telefono} = buyer
+    const {Nombre, Email, Telefono, Direccion} = buyer
     const navigate = useNavigate()
+
+
     const generateOrder = async(data) => {
         try {
             const col = collection(db,"Orders")
@@ -63,10 +69,11 @@ export const Checkout = () => {
             [e.target.name] : e.target.value
         }))
     }
+    //La funcion handleSubmit permite generar la orden una vez que se hace submit al formulario ademas de vaciar el carrito
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(Nombre.length===0||Email.length===0||Telefono.length===0){
+        if(Nombre.length===0||Email.length===0||Telefono.length===0||Direccion.length===0){
             toast.error("Complete todos los datos!")
         } else {
             const items = carrito.map(e=>{return {id:e.id, title:e.nombre,price:e.precio,cantidad:e.cantidad}})
@@ -91,7 +98,7 @@ export const Checkout = () => {
     }
 
     const handleHome = () => {
-        vaciarCarrito()
+       
         navigate("/")
     }
 
@@ -129,6 +136,12 @@ export const Checkout = () => {
                             value={Telefono}
                             onChange={handleInputChange}
                     />
+                     <input type="text" 
+                            name="Direccion"
+                            placeholder="Direccion"
+                            value={Direccion}
+                            onChange={handleInputChange}
+                    />
                     
                     <input type="submit"
                             value="Finalizar compra"
@@ -146,7 +159,7 @@ export const Checkout = () => {
             :
             <div className='ordenCompra'>
             
-                <h4 className='pb-5'> Su orden de compra es "{orderId}"</h4>
+                <h4 className='pb-5'> Su orden de compra es: "{orderId}"</h4>
                 <button className="btn btn-danger" onClick={handleHome}>Volver al inicio</button>
             </div> }
         </div>

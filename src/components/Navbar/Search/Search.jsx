@@ -6,6 +6,8 @@ export const Search = () => {
 
     const [valorIngresado,setValorIngresado] = useState()
 
+    //La funcion buscarProductos setea el nombre que se ingrese en input del buscador que se usara como parametro en la ruta 
+
     const buscarProductos = (e) => {
         setValorIngresado(e.target.value)
         console.log(valorIngresado);

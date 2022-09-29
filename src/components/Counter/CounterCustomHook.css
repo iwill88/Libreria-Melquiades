@@ -1,6 +1,10 @@
+/*----------------Counter------------------*/
+
 .counterConfirmar{
     width:137px;
 }
+
+/*----------------Responsive Counter------------------*/
 
 @media all and (max-width:1050px){
     .counterContainer{

@@ -1,4 +1,5 @@
 
+/*----------------Cart-------------------*/
 
 .cartContainer{
   padding-left: 150px;
@@ -97,6 +98,10 @@
     
     
 }
+
+/*----------------Responsive Cart-------------------*/
+
+
 @media all and (max-width:600px) {
 
     .cartContainer{

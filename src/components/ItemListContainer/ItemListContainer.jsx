@@ -22,7 +22,7 @@ export const ItemListContainer = () => {
     
     
       
-  
+      //Si el parametro es "categorias" cargaran los productos que coincidan con la categoria de la ruta
       if (categorias) {
       
       const queryFilter = query(queryCollection, where('categoria', "==", categorias))
@@ -37,7 +37,8 @@ export const ItemListContainer = () => {
 
 
       }
-      
+      //Si el parametro es "nombre" cargaran los productos que coincidan con los caracteres del nombre de la ruta
+
       else if (nombre) {
         getDocs(queryCollection)
       
@@ -48,6 +49,9 @@ export const ItemListContainer = () => {
         .finally(()=> setIsLoading(false))
       }
       
+      //Si no hay parametro se cargaran todos los productos
+
+
       else {
       
       getDocs(queryCollection)

@@ -12,6 +12,8 @@ const {id} = useParams()
 
   const [producto, setProducto] = useState()
   const [isLoading, setIsLoading] = useState(true)
+  
+  //La funcion doc de firebase llama al item dependiendo del id que se pase por parametro
   useEffect(() => {
 
         const db = getFirestore();

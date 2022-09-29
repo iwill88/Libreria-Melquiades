@@ -1,3 +1,5 @@
+/*----------EmptySearch------------*/
+
 .emptyContainer{
     display:flex;
     flex-wrap: wrap;
@@ -24,6 +26,9 @@
     left:5px;
     font-size: 25px;
 }
+
+/*----------Responsive EmptySearch------------*/
+
 
 @media all and (max-width:700px){
 

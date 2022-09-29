@@ -1,3 +1,4 @@
+/*-------------ItemListContainer---------------*/
 
 
 .itemContainer{
@@ -14,9 +15,8 @@
     height:400px;
 }
 
-/*----------------RESPONSIVE-----------------*/
+/*----------------RESPONSIVE ItemListContainer-----------------*/
 
-/*-------------ItemListContainer---------------*/
 @media all and (max-width:1050px){
     .saludo{
         padding:0px 20px;

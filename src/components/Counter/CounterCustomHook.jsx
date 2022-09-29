@@ -2,6 +2,9 @@ import { UseCounter } from '../../hooks/UseCounter';
 import './CounterCustomHook.css'
 
 export const CounterCustomHook = ({stock, onAdd}) => {
+
+    //Se llaman las funciones del hook UseCounter
+    
    const {add, substract, reset, count} = UseCounter(stock, onAdd)
     return (
        <>

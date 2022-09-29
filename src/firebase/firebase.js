@@ -14,6 +14,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 
+//Con esta funcion se carga la Base de Datos de firestore con los productos de un archivo .json que se tuviera
+
 async function cargarBaseDeDatos  () {
     const promise = await fetch('./json/libros.json')
     const productos = await promise.json()

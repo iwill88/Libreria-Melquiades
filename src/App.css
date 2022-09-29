@@ -1,3 +1,6 @@
+/*-------------APP---------------*/
+
+
 .darkMode {
     background-color: rgb(58, 51, 51);
     color:antiquewhite;
@@ -13,6 +16,9 @@
     position:relative;
     top:40px;
 }
+
+/*-------------Responsive APP---------------*/
+
 
 @media all and (max-width:1050px){
     .botonMode{

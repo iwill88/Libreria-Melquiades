@@ -1,5 +1,9 @@
 import '../../ItemListContainer/Item/Item.css';
 import { Link } from 'react-router-dom';
+
+//El componente Item recibe las propiedades de cada producto 
+
+
 export const Item = ({libro}) => {
     const {img, nombre, autor, precio, id} =libro;
     return (

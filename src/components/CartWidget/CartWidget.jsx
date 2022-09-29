@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import { CarritoContext } from "../../context/CarritoContext";
 
 export const CartWidget = () => {
+
+    //Se llama la cantidad de productos que hay en el carrito desde CarritoContext
     const {cantidad,carrito} = useContext(CarritoContext)
 
     return (

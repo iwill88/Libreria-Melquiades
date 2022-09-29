@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+//En este Hook se declaran las funciones del contador para sumar, restar y resetear
 export const UseCounter = (stock) => {
     const [count, setCount] = useState(1)
 

@@ -11,6 +11,8 @@ export const CarritoContextProvider = (props) => {
     
         const indice=auxCarrito.findIndex(i => i.id === producto.id)
         
+        //Si el producto que se va a agregar al carrito ya esta en el mismo solo se modifica la cantidad en caso contrario se agrega el nuevo producto
+
         if (indice >-1 ) {
             const cantidadActual= auxCarrito[indice].cantidad
             let cantidadNueva= cantidadActual + producto.cantidad
@@ -25,6 +27,8 @@ export const CarritoContextProvider = (props) => {
             
         }
     }
+
+    //Con la funcion quitarPorductoCarrito se elimina todo un producto del carrito
 
     const quitarProductoCarrito = (producto) => {
         let indice = auxCarrito.findIndex(prod => prod.id === producto.id)

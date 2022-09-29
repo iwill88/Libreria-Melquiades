@@ -1,3 +1,5 @@
+/*-------------------Checkout------------------------*/
+
 
 .checkContainer h2{
    text-align: center;
@@ -47,6 +49,9 @@
 .ordenCompra button{
     width:25%;
 }
+
+/*-------------------Responsive Checkout------------------------*/
+
 
 @media all and (max-width:600px){
 

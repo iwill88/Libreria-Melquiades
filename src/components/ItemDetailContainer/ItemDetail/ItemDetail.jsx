@@ -14,13 +14,14 @@ export const ItemDetail = ({seleccion,darkMode}) => {
     
     const {carrito, agregarProductoCarrito} = useContext(CarritoContext)
 
+    // Con la funcion onAdd  se agrega el producto al array carrito usando las funciones de CarritoContext
 
     function onAdd( count){
             const productoCarrito = {id: id, nombre: nombre, precio:precio, img: img, autor: autor, stock: stock, cantidad: count}
             agregarProductoCarrito(productoCarrito)
             console.log(carrito)
             setGoToCart(true);
-            toast.success("Se ha agregado al carrito")
+            toast.success("Se ha agregado al carrito", {autoClose: 1500})
         }
 
 
