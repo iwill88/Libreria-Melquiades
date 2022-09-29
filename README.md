@@ -18,7 +18,7 @@ _A continuación parte de las herramientas y tecnologías utilizadas._
 ![Maquetado](https://github.com/iwill88/Libreria-Melquiades/blob/master/public/assets/Portada-GitHub.png)
 
 ---
-📌 [Sitio Web de "Librería Melquíades"](https://iwill88.github.io/Bodega-Castaneda_Website/) 😊
+📌 [Sitio Web de "Librería Melquíades"](https://iwill88.github.io/Libreria-Melquiades/) 😊
 
 ## Scripts disponibles
 
